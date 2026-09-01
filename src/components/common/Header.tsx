@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
               <img
                 src="/assets/dr-deibson-logo-cropped.avif"
                 alt="Dr. Deibson Fernandes - Cirurgião Dentista"
-                className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] brightness-110"
               />
             </div>
           </Link>
@@ -78,15 +78,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className={`text-xs uppercase tracking-[0.18em] font-medium transition-all relative py-1 ${
+                    className={`text-xs uppercase tracking-[0.2em] font-semibold transition-all relative py-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] ${
                       isActive
-                        ? 'text-[#C5A880] font-semibold'
-                        : 'text-[#9E9EA6] hover:text-[#F3F0EA]'
+                        ? 'text-[#DFCAAB] font-bold'
+                        : hasBox
+                        ? 'text-[#D5D2DA] hover:text-[#FFFFFF]'
+                        : 'text-[#F8F6F2] hover:text-[#DFCAAB]'
                     }`}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#C5A880] rounded-full" />
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#DFCAAB] rounded-none shadow-[0_0_8px_rgba(223,202,171,0.6)]" />
                     )}
                   </Link>
                 );
