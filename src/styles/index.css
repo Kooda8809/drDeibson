@@ -42,7 +42,7 @@
   --radius-md: 0px;
   --radius-lg: 0px;
   --radius-xl: 0px;
-  --radius-full: 9999px;
+  --radius-full: 0px;
   
   /* Shadows & Elevations */
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -98,13 +98,24 @@ body {
   background-color: var(--bg-main);
   background-image: 
     radial-gradient(circle at 50% 0%, rgba(197, 168, 128, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 100% 50%, rgba(197, 168, 128, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 0% 80%, rgba(197, 168, 128, 0.02) 0%, transparent 50%);
-  background-attachment: fixed;
+    radial-gradient(circle at 50% 100%, rgba(197, 168, 128, 0.03) 0%, transparent 50%);
+  background-attachment: scroll;
   display: flex;
   flex-direction: column;
   line-height: 1.65;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Global Button Sharp Corners Enforcement */
+button,
+[role="button"],
+.btn-primary,
+.btn-secondary,
+.btn-bronze,
+.btn-pill-primary,
+.btn-pill-bronze,
+.btn-pill-secondary {
+  border-radius: 0px !important;
 }
 
 /* Prevent iOS Safari automatic zoom on inputs */
@@ -130,13 +141,13 @@ input, select, textarea {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
-/* Typography Defaults */
+/* Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   color: var(--text-primary);
+  letter-spacing: -0.015em;
   font-weight: 400;
   line-height: 1.12;
-  letter-spacing: -0.015em;
 }
 
 p {
@@ -161,7 +172,8 @@ p {
   padding-bottom: clamp(3.5rem, 8vw, 8.5rem);
 }
 
-/* Touch Friendly Buttons (Pill Minimalist with Active Feedback) */
+/* Touch Friendly Buttons (Sharp Architectural Corners) */
+.btn-primary,
 .btn-pill-primary {
   display: inline-flex;
   align-items: center;
@@ -175,7 +187,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: var(--radius-full);
+  border-radius: 0px;
   transition: all var(--transition-fast);
   border: 1px solid var(--text-primary);
   user-select: none;
@@ -183,6 +195,7 @@ p {
   touch-action: manipulation;
 }
 
+.btn-primary:hover,
 .btn-pill-primary:hover {
   background: var(--accent-bronze);
   border-color: var(--accent-bronze);
@@ -191,10 +204,12 @@ p {
   transform: translateY(-2px);
 }
 
+.btn-primary:active,
 .btn-pill-primary:active {
   transform: scale(0.97);
 }
 
+.btn-bronze,
 .btn-pill-bronze {
   display: inline-flex;
   align-items: center;
@@ -208,7 +223,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: var(--radius-full);
+  border-radius: 0px;
   transition: all var(--transition-fast);
   box-shadow: 0 6px 24px rgba(197, 168, 128, 0.25);
   border: 1px solid rgba(243, 240, 234, 0.3);
@@ -217,16 +232,19 @@ p {
   touch-action: manipulation;
 }
 
+.btn-bronze:hover,
 .btn-pill-bronze:hover {
   background: linear-gradient(135deg, #FFFFFF 0%, #DFCAAB 100%);
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
 
+.btn-bronze:active,
 .btn-pill-bronze:active {
   transform: scale(0.97);
 }
 
+.btn-secondary,
 .btn-pill-secondary {
   display: inline-flex;
   align-items: center;
@@ -240,7 +258,7 @@ p {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: var(--radius-full);
+  border-radius: 0px;
   border: 1px solid var(--border-medium);
   transition: all var(--transition-fast);
   backdrop-filter: blur(12px);
@@ -250,6 +268,7 @@ p {
   touch-action: manipulation;
 }
 
+.btn-secondary:hover,
 .btn-pill-secondary:hover {
   border-color: var(--accent-bronze);
   color: var(--accent-bronze);
@@ -257,6 +276,7 @@ p {
   transform: translateY(-2px);
 }
 
+.btn-secondary:active,
 .btn-pill-secondary:active {
   transform: scale(0.97);
 }

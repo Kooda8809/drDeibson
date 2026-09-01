@@ -119,8 +119,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           {/* Vertical Neon Divider Line */}
           <div className="absolute top-0 bottom-0 -left-[1px] w-[2px] bg-gradient-to-b from-transparent via-[#DFCAAB] via-[#C5A880] to-transparent shadow-[0_0_12px_rgba(197,168,128,0.8),0_0_24px_rgba(197,168,128,0.6)]" />
 
-          {/* Central Circular Glowing Handle (Optimized for finger touch targets) */}
-          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0E0E12] border-2 border-[#C5A880] text-[#DFCAAB] flex items-center justify-center shadow-[0_0_20px_rgba(197,168,128,0.6),0_0_35px_rgba(197,168,128,0.3)] backdrop-blur-lg transform transition-transform group-hover:scale-110 group-active:scale-95">
+          {/* Central Square/Diamond Glowing Handle */}
+          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-[#0E0E12] border-2 border-[#C5A880] text-[#DFCAAB] flex items-center justify-center shadow-[0_0_20px_rgba(197,168,128,0.6),0_0_35px_rgba(197,168,128,0.3)] backdrop-blur-lg transform transition-transform group-hover:scale-110 group-active:scale-95">
             <ChevronsLeftRight className="w-4 h-4 text-[#DFCAAB]" />
           </div>
         </div>

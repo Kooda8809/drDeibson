@@ -103,7 +103,7 @@ export const ContactPage: React.FC = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Como você prefere ser chamado(a)"
-                      className="w-full px-4 py-3 rounded-sm bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-none bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="(DDD) 99999-9999"
-                        className="w-full px-4 py-3 rounded-sm bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-none bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -131,7 +131,7 @@ export const ContactPage: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="seuemail@exemplo.com"
-                        className="w-full px-4 py-3 rounded-sm bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-none bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -146,7 +146,7 @@ export const ContactPage: React.FC = () => {
                           type="button"
                           key={shift}
                           onClick={() => setPreferredShift(shift)}
-                          className={`py-2.5 text-xs font-medium rounded-sm border transition-all ${
+                          className={`py-2.5 text-xs font-medium rounded-none border transition-all ${
                             preferredShift === shift
                               ? 'bg-[#C5A880]/20 border-[#C5A880] text-[#DEC5A3] font-semibold'
                               : 'bg-[#16161B] border-[rgba(243,240,234,0.06)] text-[#A0A0A5] hover:text-[#F3F0EA]'
@@ -167,7 +167,7 @@ export const ContactPage: React.FC = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Conte um pouco sobre suas expectativas em relação ao seu sorriso..."
-                      className="w-full px-4 py-3 rounded-sm bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-none bg-[#16161B] border border-[rgba(243,240,234,0.1)] text-sm text-[#F3F0EA] focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 

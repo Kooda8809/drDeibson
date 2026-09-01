@@ -70,8 +70,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
       {/* Backdrop click dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Modal Content (Full/BottomSheet on Mobile, Centered Card on Desktop) */}
-      <div className="relative w-full max-w-lg max-h-[94dvh] overflow-y-auto bg-[#0E0E12] border border-[rgba(197,168,128,0.3)] rounded-t-2xl sm:rounded-2xl shadow-2xl z-10 safe-padding-bottom">
+      {/* Modal Content (BottomSheet on Mobile, Centered Card on Desktop) */}
+      <div className="relative w-full max-w-lg max-h-[94dvh] overflow-y-auto bg-[#0E0E12] border border-[rgba(197,168,128,0.3)] rounded-none shadow-2xl z-10 safe-padding-bottom">
         {/* Header Ribbon */}
         <div className="bg-gradient-to-r from-[#16161D] via-[#101014] to-[#16161D] p-5 sm:p-6 border-b border-[rgba(243,240,234,0.08)] flex items-start justify-between sticky top-0 z-20 backdrop-blur-md">
           <div>
@@ -85,7 +85,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
           </div>
           <button
             onClick={onClose}
-            className="text-[#A0A0A5] hover:text-[#F3F0EA] p-2.5 rounded-full hover:bg-[#202026] active:scale-95 transition-all"
+            className="text-[#A0A0A5] hover:text-[#F3F0EA] p-2.5 rounded-none hover:bg-[#202026] active:scale-95 transition-all"
             aria-label="Fechar formulário"
           >
             <X className="w-5 h-5" />
@@ -105,7 +105,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
               onChange={(e) => setName(e.target.value)}
               placeholder="Como prefere ser chamado(a)"
               autoComplete="name"
-              className="w-full px-4 py-3 rounded-xl bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-none bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
             />
           </div>
 
@@ -122,7 +122,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(DDD) 99999-9999"
                 autoComplete="tel"
-                className="w-full px-4 py-3 rounded-xl bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-none bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
               />
             </div>
 
@@ -137,7 +137,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="seuemail@exemplo.com"
                 autoComplete="email"
-                className="w-full px-4 py-3 rounded-xl bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-none bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -152,7 +152,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                   type="button"
                   key={shift}
                   onClick={() => setPreferredShift(shift)}
-                  className={`py-2.5 text-xs font-medium rounded-full border transition-all active:scale-95 ${
+                  className={`py-2.5 text-xs font-medium rounded-none border transition-all active:scale-95 ${
                     preferredShift === shift
                       ? 'bg-[#C5A880]/20 border-[#C5A880] text-[#DFCAAB] font-semibold'
                       : 'bg-[#16161C] border-[rgba(243,240,234,0.08)] text-[#A0A0A5] hover:text-[#F3F0EA]'
@@ -173,7 +173,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Ex: Gostaria de harmonizar proporções, fechar pequenos espaços ou melhorar a estética do sorriso..."
-              className="w-full px-4 py-3 rounded-xl bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-none bg-[#16161C] border border-[rgba(243,240,234,0.1)] text-[#F3F0EA] text-base focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
             />
           </div>
 

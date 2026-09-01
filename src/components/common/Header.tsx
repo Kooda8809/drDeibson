@@ -97,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 text-[#F3F0EA] hover:text-[#C5A880] transition-colors border border-[rgba(243,240,234,0.12)] rounded-full bg-[#141418]/80"
+              className="p-2.5 text-[#F3F0EA] hover:text-[#C5A880] transition-colors border border-[rgba(243,240,234,0.12)] rounded-none bg-[#141418]/80"
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu de navegação'}
               aria-expanded={mobileMenuOpen}
             >
@@ -121,7 +121,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 text-[#F3F0EA] border border-[rgba(243,240,234,0.12)] rounded-full bg-[#141418]"
+              className="p-2.5 text-[#F3F0EA] border border-[rgba(243,240,234,0.12)] rounded-none bg-[#141418]"
               aria-label="Fechar menu"
             >
               <X className="w-5 h-5" />

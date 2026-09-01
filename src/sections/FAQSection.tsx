@@ -54,9 +54,9 @@ export const FAQSection: React.FC = () => {
                   {/* Top Row: Icon Button + Question */}
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-4 flex-grow">
-                      {/* Left Circular Toggle Icon (+ or X) */}
+                      {/* Left Square Toggle Icon (+ or X) */}
                       <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                        className={`w-10 h-10 rounded-none flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                           isOpen
                             ? 'bg-[#1C1C24] text-[#C5A880] border border-[#C5A880]/50 shadow-[0_0_12px_rgba(197,168,128,0.3)]'
                             : 'bg-[#15151C] text-[#8E8E98] border border-white/10 group-hover:text-[#F3F0EA]'

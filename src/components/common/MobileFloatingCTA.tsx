@@ -27,7 +27,7 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenAppo
       <div className="flex items-center gap-2 max-w-md mx-auto">
         <button
           onClick={handleModalClick}
-          className="flex-1 py-3 px-4 rounded-sm bg-gradient-to-r from-[#DEC5A3] to-[#C5A880] text-[#050505] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg active:scale-[0.98] transition-transform"
+          className="flex-1 py-3 px-4 rounded-none bg-gradient-to-r from-[#DEC5A3] to-[#C5A880] text-[#050505] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg active:scale-[0.98] transition-transform"
         >
           <Sparkles className="w-3.5 h-3.5" />
           <span>Solicitar Avaliação</span>
@@ -35,7 +35,7 @@ export const MobileFloatingCTA: React.FC<MobileFloatingCTAProps> = ({ onOpenAppo
 
         <button
           onClick={handleDirectWhatsApp}
-          className="p-3 rounded-sm bg-[#18181D] text-[#C5A880] border border-[#C5A880]/30 hover:bg-[#202026] active:scale-[0.98] transition-transform"
+          className="p-3 rounded-none bg-[#18181D] text-[#C5A880] border border-[#C5A880]/30 hover:bg-[#202026] active:scale-[0.98] transition-transform"
           aria-label="Falar diretamente no WhatsApp"
         >
           <MessageCircle className="w-4 h-4" />
