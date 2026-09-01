@@ -44,16 +44,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAppointmentModal
           {/* Left Column: Direct Editorial Headline & Actions */}
           <div className="lg:col-span-8 xl:col-span-7 flex flex-col items-start pt-6 md:pt-0 animate-fade-in">
             {/* Main Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] text-[#F3F0EA] font-normal leading-[1.08] mb-6 tracking-tight drop-shadow-md">
-              Seu sorriso não precisa{' '}
-              <span className="italic text-[#C5A880] font-normal block sm:inline">parecer feito.</span>
-              <br />
-              Precisa parecer seu.
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] text-[#F3F0EA] font-normal leading-[1.1] mb-6 tracking-tight drop-shadow-md">
+              A harmonia perfeita entre a sua essência e o{' '}
+              <span className="italic text-[#C5A880] font-normal block sm:inline">seu sorriso.</span>
             </h1>
 
             {/* Subhead */}
             <p className="text-base sm:text-lg lg:text-xl text-[#D0CDD5] font-sans font-light leading-relaxed mb-9 max-w-xl drop-shadow">
-              Design de sorrisos exclusivos através de uma abordagem precisa, artesanal e orientada à harmonia facial. Cada faceta em resina esculpida como uma obra de arte única.
+              Mais do que estética, entregamos confiança. Planejamentos visagistas exclusivos que respeitam os traços do seu rosto e revelam a sua melhor versão com máxima discrição.
             </p>
 
             {/* Pill Action Buttons */}
