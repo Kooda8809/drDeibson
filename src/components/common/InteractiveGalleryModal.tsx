@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 import { BeforeAfterSlider } from './BeforeAfterSlider';
 import { CaseStudy } from '../../data/cases';
@@ -20,9 +20,6 @@ export const InteractiveGalleryModal: React.FC<InteractiveGalleryModalProps> = (
   onNext,
   hasNavigation = true,
 }) => {
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -47,32 +44,6 @@ export const InteractiveGalleryModal: React.FC<InteractiveGalleryModalProps> = (
     };
   }, [isOpen, onClose, onPrev, onNext]);
 
-  // Mobile Swipe Gesture Handling
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 50;
-
-    if (distance > minSwipeDistance && onNext) {
-      // Swiped Left -> Next Case
-      onNext();
-    } else if (distance < -minSwipeDistance && onPrev) {
-      // Swiped Right -> Prev Case
-      onPrev();
-    }
-
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
   if (!isOpen || !caseStudy) return null;
 
   return (
@@ -88,9 +59,6 @@ export const InteractiveGalleryModal: React.FC<InteractiveGalleryModalProps> = (
       {/* Main Spotlight Container (Sharp Defined Corners & Mobile-Friendly Scroll) */}
       <div
         className="relative w-full max-w-5xl max-h-[94dvh] overflow-y-auto bg-[#0C0C0F] border border-[rgba(197,168,128,0.3)] rounded-none shadow-[0_25px_70px_rgba(0,0,0,0.95)] z-10 flex flex-col"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         {/* Top Bar with Case Navigation & Close Button */}
         <div className="flex items-center justify-between p-3 sm:p-4 md:p-6 border-b border-[rgba(243,240,234,0.08)] bg-[#111116]/95 backdrop-blur-md sticky top-0 z-20">
