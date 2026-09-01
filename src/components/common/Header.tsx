@@ -18,22 +18,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // On homepage, header stays invisible until user scrolls past hero (approx 120px)
-      if (window.scrollY > 120) {
+      // Box appears as soon as user scrolls down
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
 
-    if (isHomePage) {
-      handleScroll();
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => window.removeEventListener('scroll', handleScroll);
-    } else {
-      setIsScrolled(true);
-    }
-  }, [isHomePage]);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -45,15 +41,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
     onOpenAppointmentModal();
   };
 
-  const isHeaderVisible = !isHomePage || isScrolled;
+  const hasBox = !isHomePage || isScrolled;
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
-          isHeaderVisible
-            ? 'opacity-100 translate-y-0 pointer-events-auto bg-[#09090C]/95 backdrop-blur-xl border-b border-[rgba(243,240,234,0.08)] py-3 shadow-2xl'
-            : 'opacity-0 -translate-y-4 pointer-events-none py-4'
+          hasBox
+            ? 'bg-[#09090C]/95 backdrop-blur-xl border-b border-[rgba(243,240,234,0.08)] py-3 shadow-2xl'
+            : 'bg-transparent border-b border-transparent backdrop-blur-none py-5 sm:py-6 shadow-none'
         }`}
       >
         <div className="site-container flex items-center justify-between lg:justify-center lg:gap-8 xl:gap-12">
