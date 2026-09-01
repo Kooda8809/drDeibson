@@ -14,7 +14,7 @@ export const FAQPage: React.FC<FAQPageProps> = ({ onOpenAppointmentModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [openId, setOpenId] = useState<string | null>(faqData[0]?.id || null);
 
-  const categories = ['Todos', 'Tratamento', 'Indicação', 'Manutenção & Durabilidade', 'Agendamento'];
+  const categories = ['Todos', 'Naturalidade & Estética', 'Indicação & Preservação', 'Durabilidade & Cuidados'];
 
   const filteredFaq = faqData.filter((item) => {
     const matchesCategory = selectedCategory === 'Todos' || item.category === selectedCategory;
