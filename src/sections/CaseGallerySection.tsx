@@ -31,7 +31,7 @@ export const CaseGallerySection: React.FC = () => {
   };
 
   return (
-    <section className="section-padding bg-[#070709] border-t border-[rgba(243,240,234,0.06)] relative">
+    <section id="casos" className="section-padding bg-[#070709] border-t border-[rgba(243,240,234,0.06)] relative">
       <div className="site-container">
         {/* Clean Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">

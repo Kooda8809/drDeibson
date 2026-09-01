@@ -2,9 +2,8 @@ import React from 'react';
 import { SEO } from '../components/common/SEO';
 import { HeroSection } from '../sections/HeroSection';
 import { ResinVeneersSection } from '../sections/ResinVeneersSection';
-import { MethodologySection } from '../sections/MethodologySection';
-import { PhilosophySection } from '../sections/PhilosophySection';
 import { CaseGallerySection } from '../sections/CaseGallerySection';
+import { MethodologySection } from '../sections/MethodologySection';
 import { AboutSection } from '../sections/AboutSection';
 import { FAQSection } from '../sections/FAQSection';
 import { FinalCTASection } from '../sections/FinalCTASection';
@@ -24,9 +23,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAppointmentModal }) =>
       <main>
         <HeroSection onOpenAppointmentModal={onOpenAppointmentModal} />
         <ResinVeneersSection onOpenAppointmentModal={onOpenAppointmentModal} />
-        <MethodologySection />
-        <PhilosophySection />
         <CaseGallerySection />
+        <MethodologySection />
         <AboutSection />
         <FAQSection />
         <FinalCTASection onOpenAppointmentModal={onOpenAppointmentModal} />
