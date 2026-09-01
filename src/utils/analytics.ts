@@ -12,6 +12,7 @@ export type AnalyticsEvent =
   | 'click_about_more'
   | 'click_about_cta'
   | 'click_methodology_cta'
+  | 'click_cases_bridge'
   | 'faq_open'
   | 'scroll_hero_cta';
 

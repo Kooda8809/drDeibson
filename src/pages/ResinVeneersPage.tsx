@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import { SectionHeading } from '../components/common/SectionHeading';
-import { Check, ShieldAlert, Layers, RefreshCw, Zap } from 'lucide-react';
+import { Check, ShieldAlert, Layers, RefreshCw, Zap, ArrowUpRight, ChevronLeft, ChevronRight, AlertCircle } from 'lucide-react';
 import { methodologySteps } from '../data/methodology';
 import { FinalCTASection } from '../sections/FinalCTASection';
+import { trackEvent } from '../utils/analytics';
 
 interface ResinVeneersPageProps {
   onOpenAppointmentModal: () => void;
 }
 
 export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppointmentModal }) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+
+  const handleMobileScroll = () => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const itemWidth = container.offsetWidth * 0.85;
+    const index = Math.round(scrollLeft / itemWidth);
+    setActiveStepIndex(Math.min(Math.max(index, 0), methodologySteps.length - 1));
+  };
+
+  const scrollToStep = (index: number) => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const itemWidth = container.offsetWidth * 0.85 + 16;
+    container.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
+    setActiveStepIndex(index);
+  };
+
+  const handleNextStep = () => {
+    if (activeStepIndex < methodologySteps.length - 1) {
+      scrollToStep(activeStepIndex + 1);
+    }
+  };
+
+  const handlePrevStep = () => {
+    if (activeStepIndex > 0) {
+      scrollToStep(activeStepIndex - 1);
+    }
+  };
+
   return (
     <>
       <SEO
@@ -45,9 +79,10 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               subtitle="Materiais odontológicos de última geração desenvolvidos para mimetizar o esmalte humano com máxima resistência mecânica e estabilidade de cor."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {/* 3 Technical Explanation Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
               <div className="editorial-card">
-                <div className="w-10 h-10 rounded-sm bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
+                <div className="w-10 h-10 rounded-none bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
                   <Layers className="w-5 h-5" />
                 </div>
                 <h3 className="font-serif text-xl text-[#F3F0EA] mb-2">Estratificação Cromática</h3>
@@ -57,7 +92,7 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               </div>
 
               <div className="editorial-card">
-                <div className="w-10 h-10 rounded-sm bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
+                <div className="w-10 h-10 rounded-none bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
                   <Zap className="w-5 h-5" />
                 </div>
                 <h3 className="font-serif text-xl text-[#F3F0EA] mb-2">Microtextura & Polimento</h3>
@@ -67,7 +102,7 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               </div>
 
               <div className="editorial-card">
-                <div className="w-10 h-10 rounded-sm bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
+                <div className="w-10 h-10 rounded-none bg-[#1A1A20] border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] mb-4">
                   <RefreshCw className="w-5 h-5" />
                 </div>
                 <h3 className="font-serif text-xl text-[#F3F0EA] mb-2">Reversibilidade & Ajuste</h3>
@@ -77,46 +112,149 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               </div>
             </div>
 
-            {/* Indication & Assessment Box */}
-            <div className="p-8 rounded-md bg-[#101014] border border-[rgba(197,168,128,0.3)] shadow-2xl">
-              <div className="flex items-center gap-3 mb-4">
-                <ShieldAlert className="w-6 h-6 text-[#C5A880]" />
-                <h3 className="font-serif text-2xl text-[#F3F0EA] font-normal">
+            {/* Visual Breathing Room: High-Definition Macro Photography Showcase */}
+            <div className="mb-16 pt-8 border-t border-[rgba(243,240,234,0.06)]">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+                <div>
+                  <span className="text-[10px] font-mono tracking-[0.25em] text-[#DFCAAB] uppercase block mb-1">
+                    Documentação Visual & Detalhes Anatômicos
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl text-[#F3F0EA] font-normal">
+                    A anatomia viva que os olhos sentem.
+                  </h3>
+                </div>
+                <p className="text-xs text-[#8E8E93] max-w-md font-light leading-relaxed">
+                  Registros em ultra-aproximação clínica revelando a precisão do trabalho artesanal: textura de esmalte, luz e estratificação.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Macro 1: Escultura e Estratificação */}
+                <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
+                    <img
+                      src="/assets/macro/sculpting-resin.jpg"
+                      alt="Estratificação e escultura manual de resina nano-híbrida"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                    <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
+                      Fase Clínica • Escultura
+                    </span>
+                  </div>
+                  <div className="p-4 sm:p-5">
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Estratificação Direta</h4>
+                    <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
+                      Aplicação artesanal de nuances em esmalte e dentina, reproduzindo a profundidade e os halos de luminosidade biológicos.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Macro 2: Microtextura & Periquimácias */}
+                <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
+                    <img
+                      src="/assets/macro/microtexture-enamel.jpg"
+                      alt="Microtextura superficial e periquimácias refletindo a luz"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                    <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
+                      Óptica • Microtextura
+                    </span>
+                  </div>
+                  <div className="p-4 sm:p-5">
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Periquimácias & Textura</h4>
+                    <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
+                      Micro-ranhuras horizontais milimétricas que quebram a luz refletida, eliminando a sensação plana e artificial de dentes falsos.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Macro 3: Polimento Mecânico de Alto Brilho */}
+                <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
+                    <img
+                      src="/assets/macro/polishing-spiral.jpg"
+                      alt="Polimento mecânico multi-grão para brilho acetinado vítreo"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                    <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
+                      Acabamento • Alto Brilho
+                    </span>
+                  </div>
+                  <div className="p-4 sm:p-5">
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Polimento Multi-Grão</h4>
+                    <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
+                      Discos e pastas diamantadas espirais que conferem selamento marginal impecável e brilho acetinado duradouro.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Indication & Assessment Box (Harmonious Symmetrical Quick Scanning) */}
+            <div className="p-6 sm:p-8 rounded-none bg-[#101014] border border-[rgba(197,168,128,0.3)] shadow-2xl">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[rgba(243,240,234,0.06)]">
+                <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6 text-[#DFCAAB]" />
+                <h3 className="font-serif text-xl sm:text-2xl text-[#F3F0EA] font-normal">
                   Critérios de Indicação Clínica
                 </h3>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-[#A0A0A5] font-light leading-relaxed">
-                <div>
-                  <h4 className="text-xs uppercase tracking-wider text-[#DEC5A3] font-semibold mb-3">
-                    Casos Frequentemente Favorecidos:
+                {/* Left Column: Favoráveis */}
+                <div className="space-y-3">
+                  <h4 className="text-xs uppercase tracking-wider text-[#DFCAAB] font-semibold flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#DFCAAB]" />
+                    <span>Casos Frequentemente Favorecidos:</span>
                   </h4>
-                  <ul className="space-y-2 text-xs">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#C5A880]" />
-                      <span>Fechamento de espaços entre os dentes (diastemas)</span>
+                  <ul className="space-y-2.5 text-xs">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">✔</span>
+                      <span className="text-[#D5D2DA]">Fechamento de espaços entre os dentes (diastemas)</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#C5A880]" />
-                      <span>Dentes conoides ou com assimetrias de tamanho e largura</span>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">✔</span>
+                      <span className="text-[#D5D2DA]">Dentes conoides ou com assimetrias de tamanho e largura</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#C5A880]" />
-                      <span>Desgastes leves de bordo incisal por atrito</span>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">✔</span>
+                      <span className="text-[#D5D2DA]">Desgastes leves de bordo incisal por atrito ou tempo</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#C5A880]" />
-                      <span>Harmonização do arco do sorriso e proporções faciais</span>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">✔</span>
+                      <span className="text-[#D5D2DA]">Harmonização do arco do sorriso e proporções faciais</span>
                     </li>
                   </ul>
                 </div>
 
-                <div>
-                  <h4 className="text-xs uppercase tracking-wider text-[#DEC5A3] font-semibold mb-3">
-                    A Necessidade da Avaliação Presencial:
+                {/* Right Column: Casos de Atenção Preparatória */}
+                <div className="space-y-3">
+                  <h4 className="text-xs uppercase tracking-wider text-[#DFCAAB] font-semibold flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-[#DFCAAB]" />
+                    <span>A Necessidade da Avaliação Presencial:</span>
                   </h4>
-                  <p className="text-xs text-[#8E8E93] leading-relaxed">
-                    Pacientes com parafunções severas (bruxismo não controlado), desalinhamentos ósseos complexos ou comprometimento periodontal prévio necessitam de tratamentos preparatórios antes de qualquer procedimento estético.
+                  <ul className="space-y-2.5 text-xs">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">•</span>
+                      <span className="text-[#D5D2DA]"><strong className="text-[#F3F0EA] font-medium">Bruxismo não controlado:</strong> necessita de ajuste oclusal e placa protetora</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">•</span>
+                      <span className="text-[#D5D2DA]"><strong className="text-[#F3F0EA] font-medium">Desalinhamentos ósseos complexos:</strong> demanda alinhamento ortodôntico prévio</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[#DFCAAB] font-bold">•</span>
+                      <span className="text-[#D5D2DA]"><strong className="text-[#F3F0EA] font-medium">Comprometimento periodontal prévio:</strong> saúde gengival deve estar 100% restabelecida</span>
+                    </li>
+                  </ul>
+                  <p className="text-[11px] text-[#8E8E93] italic pt-2 border-t border-white/5">
+                    (Estes quadros exigem tratamento preparatório antes do procedimento estético).
                   </p>
                 </div>
               </div>
@@ -134,16 +272,103 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               subtitle="Um processo meticuloso estruturado em 5 etapas para transformar expectativas em um resultado com alto grau de naturalidade e rigor técnico."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4 max-w-7xl mx-auto">
+            {/* MOBILE ONLY: Horizontal Swipe Carousel with Navigation & Dots */}
+            <div className="md:hidden">
+              <div className="flex items-center justify-between mb-3 px-1">
+                <span className="text-[10px] font-mono tracking-widest text-[#DFCAAB] uppercase">
+                  Passo {activeStepIndex + 1} de {methodologySteps.length}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={handlePrevStep}
+                    disabled={activeStepIndex === 0}
+                    className="p-1.5 bg-[#14141A] border border-white/10 text-white disabled:opacity-30"
+                    aria-label="Passo anterior"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNextStep}
+                    disabled={activeStepIndex === methodologySteps.length - 1}
+                    className="p-1.5 bg-[#14141A] border border-white/10 text-white disabled:opacity-30"
+                    aria-label="Próximo passo"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Horizontal Scroll Track */}
+              <div
+                ref={carouselRef}
+                onScroll={handleMobileScroll}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 pt-1 -mx-4 px-4 scrollbar-none"
+              >
+                {methodologySteps.map((step) => (
+                  <div
+                    key={step.number}
+                    className="w-[85vw] max-w-[320px] flex-shrink-0 snap-center p-5 rounded-none bg-[#111114] border border-[rgba(243,240,234,0.09)] flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-serif text-3xl font-light text-[#DFCAAB]">
+                          {step.number}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-none bg-[#18181D] text-[#A0A0A5] border border-white/10">
+                          {step.tag}
+                        </span>
+                      </div>
+
+                      <h3 className="font-serif text-lg text-[#F3F0EA] font-normal mb-1">
+                        {step.title}
+                      </h3>
+                      <div className="text-xs text-[#DFCAAB] font-sans font-medium mb-3">
+                        {step.subtitle}
+                      </div>
+
+                      <p className="text-xs text-[#8E8E93] leading-relaxed font-light mb-4">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-[rgba(243,240,234,0.05)] space-y-1.5">
+                      {step.details.map((detail, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-1.5 text-[11px] text-[#A0A0A5]">
+                          <span className="text-[#DFCAAB] mt-0.5">•</span>
+                          <span>{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Step indicator pagination dots */}
+              <div className="flex justify-center items-center gap-2 mt-4">
+                {methodologySteps.map((_, dotIdx) => (
+                  <button
+                    key={dotIdx}
+                    onClick={() => scrollToStep(dotIdx)}
+                    className={`h-1.5 transition-all rounded-none ${
+                      activeStepIndex === dotIdx ? 'w-6 bg-[#DFCAAB]' : 'w-2 bg-white/20'
+                    }`}
+                    aria-label={`Ir para passo ${dotIdx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* DESKTOP ONLY: 5-Column Clean Layout Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4 max-w-7xl mx-auto">
               {methodologySteps.map((step) => (
                 <div
                   key={step.number}
-                  className="p-6 rounded-none bg-[#111114] border border-[rgba(243,240,234,0.07)] hover:border-[#C5A880]/40 transition-all flex flex-col justify-between group relative overflow-hidden"
+                  className="p-6 rounded-none bg-[#111114] border border-[rgba(243,240,234,0.07)] hover:border-[#DFCAAB]/40 transition-all flex flex-col justify-between group relative overflow-hidden shadow-lg"
                 >
                   {/* Top Step Number & Tag */}
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-serif text-3xl font-light text-[#C5A880]/80 group-hover:text-[#C5A880] transition-colors">
+                      <span className="font-serif text-3xl font-light text-[#DFCAAB]/80 group-hover:text-[#DFCAAB] transition-colors">
                         {step.number}
                       </span>
                       <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-none bg-[#18181D] text-[#A0A0A5] border border-[rgba(243,240,234,0.06)]">
@@ -154,7 +379,7 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
                     <h3 className="font-serif text-lg text-[#F3F0EA] font-normal mb-1">
                       {step.title}
                     </h3>
-                    <div className="text-xs text-[#C5A880] font-sans font-medium mb-3">
+                    <div className="text-xs text-[#DFCAAB] font-sans font-medium mb-3">
                       {step.subtitle}
                     </div>
 
@@ -167,13 +392,37 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
                   <div className="pt-3 border-t border-[rgba(243,240,234,0.05)] space-y-1.5">
                     {step.details.map((detail, idx) => (
                       <div key={idx} className="flex items-start gap-1.5 text-[11px] text-[#A0A0A5]">
-                        <span className="text-[#C5A880] mt-0.5">•</span>
+                        <span className="text-[#DFCAAB] mt-0.5">•</span>
                         <span>{detail}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Conversion Bridge to Cases Gallery (Proof of Concept Transition) */}
+            <div className="mt-14 max-w-5xl mx-auto p-6 sm:p-8 rounded-none bg-gradient-to-r from-[#14141A] via-[#171722] to-[#121217] border border-[rgba(197,168,128,0.35)] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1.5 text-center md:text-left">
+                <span className="text-[10px] font-mono tracking-[0.25em] text-[#DFCAAB] uppercase block">
+                  Prova Social & Resultados Reais
+                </span>
+                <h4 className="font-serif text-xl sm:text-2xl text-[#F3F0EA] font-normal">
+                  Veja na prática como esse planejamento transforma sorrisos.
+                </h4>
+                <p className="text-xs sm:text-sm text-[#A0A0A8] font-light max-w-xl">
+                  Casos clínicos reais documentados com rigor técnico, fotografia profissional e comparativo interativo de antes & depois.
+                </p>
+              </div>
+
+              <Link
+                to="/casos"
+                onClick={() => trackEvent('click_cases_bridge', { source: 'resin_veneers_process' })}
+                className="btn-pill-bronze whitespace-nowrap flex items-center justify-center gap-2 group flex-shrink-0 shadow-[0_10px_25px_rgba(197,168,128,0.25)] w-full md:w-auto"
+              >
+                <span>Acessar Galeria de Casos</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
           </div>
         </section>
