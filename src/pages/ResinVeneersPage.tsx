@@ -124,29 +124,54 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
           </div>
         </section>
 
-        {/* Methodology Recap */}
-        <section className="section-padding bg-[#0B0B0C]">
+        {/* Complete 5-Step Methodology Section */}
+        <section className="section-padding bg-[#0B0B0C] border-t border-[rgba(243,240,234,0.06)]" id="processo">
           <div className="site-container">
             <SectionHeading
-              label="O Processo"
-              title="Etapas do Tratamento"
-              highlightedWord="Personalizado."
-              subtitle="Como conduzimos a transformação do seu sorriso desde o diagnóstico até a entrega final."
+              label="Metodologia Autoral"
+              title="Do planejamento ao"
+              highlightedWord="sorriso exclusivo."
+              subtitle="Um processo meticuloso estruturado em 5 etapas para transformar expectativas em um resultado com alto grau de naturalidade e rigor técnico."
             />
 
-            <div className="space-y-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4 max-w-7xl mx-auto">
               {methodologySteps.map((step) => (
-                <div key={step.number} className="p-6 rounded-sm bg-[#121215] border border-[rgba(243,240,234,0.06)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <span className="font-serif text-2xl text-[#C5A880]">{step.number}</span>
-                    <div>
-                      <h4 className="text-base text-[#F3F0EA] font-serif">{step.title}</h4>
-                      <p className="text-xs text-[#8E8E93]">{step.description}</p>
+                <div
+                  key={step.number}
+                  className="p-6 rounded-none bg-[#111114] border border-[rgba(243,240,234,0.07)] hover:border-[#C5A880]/40 transition-all flex flex-col justify-between group relative overflow-hidden"
+                >
+                  {/* Top Step Number & Tag */}
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-serif text-3xl font-light text-[#C5A880]/80 group-hover:text-[#C5A880] transition-colors">
+                        {step.number}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-none bg-[#18181D] text-[#A0A0A5] border border-[rgba(243,240,234,0.06)]">
+                        {step.tag}
+                      </span>
                     </div>
+
+                    <h3 className="font-serif text-lg text-[#F3F0EA] font-normal mb-1">
+                      {step.title}
+                    </h3>
+                    <div className="text-xs text-[#C5A880] font-sans font-medium mb-3">
+                      {step.subtitle}
+                    </div>
+
+                    <p className="text-xs text-[#8E8E93] leading-relaxed font-light mb-4">
+                      {step.description}
+                    </p>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#C5A880] px-2.5 py-1 rounded bg-[#18181D]">
-                    {step.tag}
-                  </span>
+
+                  {/* Bullet points */}
+                  <div className="pt-3 border-t border-[rgba(243,240,234,0.05)] space-y-1.5">
+                    {step.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-1.5 text-[11px] text-[#A0A0A5]">
+                        <span className="text-[#C5A880] mt-0.5">•</span>
+                        <span>{detail}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>

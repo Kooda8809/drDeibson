@@ -10,6 +10,8 @@ export type AnalyticsEvent =
   | 'view_case'
   | 'click_case'
   | 'click_about_more'
+  | 'click_about_cta'
+  | 'click_methodology_cta'
   | 'faq_open'
   | 'scroll_hero_cta';
 

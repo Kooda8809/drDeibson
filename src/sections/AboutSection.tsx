@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { siteConfig, getWhatsAppUrl } from '../config/site';
 import { InstagramIcon } from '../components/common/InstagramIcon';
@@ -33,13 +33,23 @@ export const AboutSection: React.FC = () => {
               className="mb-6"
             />
 
-            <div className="space-y-4 text-sm md:text-base text-[#9E9EA6] font-light leading-relaxed">
+            {/* Single Intro Paragraph */}
+            <div className="text-sm md:text-base text-[#9E9EA6] font-light leading-relaxed">
               <p>
                 O <strong className="text-[#F3F0EA] font-normal">Dr. Deibson Fernandes</strong> dedica sua carreira à reconstrução do sorriso por meio de técnicas adesivas diretas. Com mais de 3.000 lentes em resina realizadas, sua prática clínica baseia-se no equilíbrio perfeito entre rigor anatômico e sensibilidade estética.
               </p>
-              <p>
-                Para o Dr. Deibson, cada paciente possui características dentofaciais singulares. Por isso, todas as intervenções são planejadas sob medida, respeitando proporções áureas, linha labial e a dinâmica natural da fala e do riso.
-              </p>
+            </div>
+
+            {/* Direct Link to Full Biography */}
+            <div className="pt-1">
+              <Link
+                to="/sobre"
+                onClick={() => trackEvent('click_about_cta', { target: 'sobre_page' })}
+                className="btn-secondary text-xs py-3 px-6 inline-flex items-center gap-2 group"
+              >
+                <span>Ler trajetória completa</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#C5A880] transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
 
             {/* Credentials Row */}

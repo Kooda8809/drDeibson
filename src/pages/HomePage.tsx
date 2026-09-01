@@ -5,7 +5,6 @@ import { ResinVeneersSection } from '../sections/ResinVeneersSection';
 import { CaseGallerySection } from '../sections/CaseGallerySection';
 import { MethodologySection } from '../sections/MethodologySection';
 import { AboutSection } from '../sections/AboutSection';
-import { FAQSection } from '../sections/FAQSection';
 import { FinalCTASection } from '../sections/FinalCTASection';
 
 interface HomePageProps {
@@ -26,7 +25,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAppointmentModal }) =>
         <CaseGallerySection />
         <MethodologySection />
         <AboutSection />
-        <FAQSection />
         <FinalCTASection onOpenAppointmentModal={onOpenAppointmentModal} />
       </main>
     </>
