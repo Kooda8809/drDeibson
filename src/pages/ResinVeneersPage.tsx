@@ -129,68 +129,68 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Macro 1: Escultura e Estratificação */}
+                {/* Real Case 1: Estratificação e Mimetismo */}
                 <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
                     <img
-                      src="/assets/macro/sculpting-resin.jpg"
-                      alt="Estratificação e escultura manual de resina nano-híbrida"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      src="/assets/cases/case-1-after.avif"
+                      alt="Caso Clínico Real - Estratificação anatômica em resina composta pelo Dr. Deibson Fernandes"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
                     <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
-                      Fase Clínica • Escultura
+                      Caso Clínico Real • Dr. Deibson
                     </span>
                   </div>
                   <div className="p-4 sm:p-5">
-                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Estratificação Direta</h4>
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Estratificação & Mimetismo</h4>
                     <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
-                      Aplicação artesanal de nuances em esmalte e dentina, reproduzindo a profundidade e os halos de luminosidade biológicos.
+                      Reprodução fidedigna das nuances ópticas, translucidez e profundidade do esmalte natural através de resinas nano-híbridas de alta tecnologia.
                     </p>
                   </div>
                 </div>
 
-                {/* Macro 2: Microtextura & Periquimácias */}
+                {/* Real Case 2: Microtextura & Brilho Natural */}
                 <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
                     <img
-                      src="/assets/macro/microtexture-enamel.jpg"
-                      alt="Microtextura superficial e periquimácias refletindo a luz"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      src="/assets/cases/case-2-after.avif"
+                      alt="Caso Clínico Real - Microtextura e reflexão de luz em resina composta pelo Dr. Deibson Fernandes"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
                     <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
-                      Óptica • Microtextura
+                      Caso Clínico Real • Dr. Deibson
                     </span>
                   </div>
                   <div className="p-4 sm:p-5">
-                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Periquimácias & Textura</h4>
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Microtextura & Reflexão de Luz</h4>
                     <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
-                      Micro-ranhuras horizontais milimétricas que quebram a luz refletida, eliminando a sensação plana e artificial de dentes falsos.
+                      Trabalho minucioso de textura superficial com estrias anatômicas que quebram o reflexo direto e garantem um brilho acetinado autêntico.
                     </p>
                   </div>
                 </div>
 
-                {/* Macro 3: Polimento Mecânico de Alto Brilho */}
+                {/* Real Case 4: Harmonia & Acabamento Acetinado */}
                 <div className="group overflow-hidden rounded-none border border-white/10 bg-[#121217] transition-all hover:border-[#DFCAAB]/40 shadow-xl">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0E]">
                     <img
-                      src="/assets/macro/polishing-spiral.jpg"
-                      alt="Polimento mecânico multi-grão para brilho acetinado vítreo"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      src="/assets/cases/case-4-after.avif"
+                      alt="Caso Clínico Real - Acabamento e proporção áurea pelo Dr. Deibson Fernandes"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
                     <span className="absolute top-3 left-3 text-[10px] font-mono tracking-widest uppercase bg-black/75 backdrop-blur-md px-2.5 py-1 text-[#DFCAAB] border border-white/10">
-                      Acabamento • Alto Brilho
+                      Caso Clínico Real • Dr. Deibson
                     </span>
                   </div>
                   <div className="p-4 sm:p-5">
-                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Polimento Multi-Grão</h4>
+                    <h4 className="font-serif text-base text-[#F3F0EA] mb-1">Harmonia & Selamento Marginal</h4>
                     <p className="text-xs text-[#8E8E93] font-light leading-relaxed">
-                      Discos e pastas diamantadas espirais que conferem selamento marginal impecável e brilho acetinado duradouro.
+                      Integração perfeita entre o dente e o material restaurador, respeitando a biologia periodontal e a anatomia individual do paciente.
                     </p>
                   </div>
                 </div>
