@@ -7,7 +7,6 @@ export interface NavItem {
 
 export const mainNavItems: NavItem[] = [
   { label: 'Início', href: '/' },
-  { label: 'Filosofia', href: '/filosofia' },
   { label: 'Lentes em Resina', href: '/lentes-em-resina' },
   { label: 'Casos', href: '/casos' },
   { label: 'Sobre', href: '/sobre' },
@@ -18,7 +17,6 @@ export const mainNavItems: NavItem[] = [
 export const footerLinks = {
   navigation: [
     { label: 'Início', href: '/' },
-    { label: 'Filosofia de Trabalho', href: '/filosofia' },
     { label: 'Lentes em Resina', href: '/lentes-em-resina' },
     { label: 'Galeria de Casos', href: '/casos' },
     { label: 'Sobre o Dr. Deibson', href: '/sobre' },

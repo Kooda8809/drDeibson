@@ -57,18 +57,13 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/filosofia" className="hover:text-[#DFCAAB] transition-colors">
-                    Filosofia Anatômica
-                  </Link>
-                </li>
-                <li>
                   <Link to="/casos" className="hover:text-[#DFCAAB] transition-colors">
                     Galeria de Casos Clínicos
                   </Link>
                 </li>
                 <li>
-                  <Link to="/lentes-em-resina#beneficios" className="hover:text-[#DFCAAB] transition-colors">
-                    Preservação de Esmalte
+                  <Link to="/lentes-em-resina#processo" className="hover:text-[#DFCAAB] transition-colors">
+                    Processo Passo a Passo
                   </Link>
                 </li>
                 <li>
@@ -91,8 +86,8 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/filosofia" className="hover:text-[#DFCAAB] transition-colors">
-                    Nossa Filosofia
+                  <Link to="/duvidas" className="hover:text-[#DFCAAB] transition-colors">
+                    Dúvidas Frequentes
                   </Link>
                 </li>
                 <li>
