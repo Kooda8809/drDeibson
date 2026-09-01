@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGradBefore2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101014"/>
+      <stop offset="100%" stop-color="#08080A"/>
+    </linearGradient>
+    <linearGradient id="toothGradBefore2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DCD4C8"/>
+      <stop offset="60%" stop-color="#B8AE9E"/>
+      <stop offset="100%" stop-color="#8E8474"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGradBefore2)"/>
+  
+  <line x1="100" y1="300" x2="700" y2="300" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="400" y1="100" x2="400" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+  
+  <g transform="translate(400, 290) scale(1.1)">
+    <path d="M-66 -65 C-56 -70 -14 -70 0 -65 C2 -35 0 15 -2 55 C-18 60 -55 58 -66 52 C-70 15 -70 -35 -66 -65 Z" fill="url(#toothGradBefore2)" stroke="#555" stroke-width="1.2"/>
+    <path d="M0 -65 C14 -70 56 -70 66 -65 C70 -35 70 15 66 52 C55 58 18 60 2 55 C0 15 -2 -35 0 -65 Z" fill="url(#toothGradBefore2)" stroke="#555" stroke-width="1.2"/>
+    <path d="M-125 -60 C-115 -65 -80 -65 -70 -60 C-70 -30 -68 15 -70 48 C-84 52 -114 48 -125 42 C-128 15 -128 -30 -125 -60 Z" fill="url(#toothGradBefore2)" stroke="#555" stroke-width="1"/>
+    <path d="M70 -60 C80 -65 115 -65 125 -60 C128 -30 128 15 125 42 C114 48 84 52 70 48 C68 15 70 -30 70 -60 Z" fill="url(#toothGradBefore2)" stroke="#555" stroke-width="1"/>
+  </g>
+</svg>

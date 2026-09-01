@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drdeibsonfernandes.com.br/sitemap.xml

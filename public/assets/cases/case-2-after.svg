@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGradAfter2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141418"/>
+      <stop offset="100%" stop-color="#0A0A0C"/>
+    </linearGradient>
+    <linearGradient id="toothGradAfter2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#F2EFE8"/>
+      <stop offset="85%" stop-color="#E2DCD0"/>
+      <stop offset="100%" stop-color="#D9BE9B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGradAfter2)"/>
+  
+  <line x1="100" y1="300" x2="700" y2="300" stroke="rgba(197,168,128,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="400" y1="100" x2="400" y2="500" stroke="rgba(197,168,128,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+  
+  <g transform="translate(400, 290) scale(1.1)">
+    <path d="M-66 -90 C-56 -94 -14 -94 0 -90 C2 -40 0 25 -2 80 C-18 85 -55 83 -66 76 C-70 25 -70 -40 -66 -90 Z" fill="url(#toothGradAfter2)" stroke="#C5A880" stroke-width="1.8"/>
+    <path d="M0 -90 C14 -94 56 -94 66 -90 C70 -40 70 25 66 76 C55 83 18 85 2 80 C0 25 -2 -40 0 -90 Z" fill="url(#toothGradAfter2)" stroke="#C5A880" stroke-width="1.8"/>
+    <path d="M-130 -80 C-118 -85 -80 -85 -70 -80 C-70 -35 -68 20 -70 65 C-86 70 -118 66 -130 58 C-134 20 -134 -35 -130 -80 Z" fill="url(#toothGradAfter2)" stroke="#C5A880" stroke-width="1.5"/>
+    <path d="M70 -80 C80 -85 118 -85 130 -80 C134 -35 134 20 130 58 C118 66 86 70 70 65 C68 20 70 -35 70 -80 Z" fill="url(#toothGradAfter2)" stroke="#C5A880" stroke-width="1.5"/>
+  </g>
+</svg>

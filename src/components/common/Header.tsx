@@ -1,0 +1,194 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Sparkles, MessageCircle } from 'lucide-react';
+import { siteConfig, getWhatsAppUrl } from '../../config/site';
+import { mainNavItems } from '../../data/navigation';
+import { trackEvent } from '../../utils/analytics';
+
+interface HeaderProps {
+  onOpenAppointmentModal: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // On homepage, header stays invisible until user scrolls past hero (approx 120px)
+      if (window.scrollY > 120) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    if (isHomePage) {
+      handleScroll();
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      setIsScrolled(true);
+    }
+  }, [isHomePage]);
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const handleCtaClick = () => {
+    trackEvent('click_agendamento', { source: 'header_cta' });
+    onOpenAppointmentModal();
+  };
+
+  const isHeaderVisible = !isHomePage || isScrolled;
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
+          isHeaderVisible
+            ? 'opacity-100 translate-y-0 pointer-events-auto bg-[#09090C]/95 backdrop-blur-xl border-b border-[rgba(243,240,234,0.08)] py-3 shadow-2xl'
+            : 'opacity-0 -translate-y-4 pointer-events-none py-4'
+        }`}
+      >
+        <div className="site-container flex items-center justify-between lg:justify-center lg:gap-8 xl:gap-12">
+          {/* Brand Logo */}
+          <Link
+            to="/"
+            className="flex items-center group focus:outline-none py-1 flex-shrink-0"
+            aria-label="Dr. Deibson Fernandes - Página Inicial"
+          >
+            <div className="h-10 sm:h-11 md:h-12 flex items-center">
+              <img
+                src="/assets/dr-deibson-logo-cropped.avif"
+                alt="Dr. Deibson Fernandes - Cirurgião Dentista"
+                className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </Link>
+
+          {/* Desktop Navigation Links - Centered and Close to Logo */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Navegação principal">
+            {mainNavItems
+              .filter((item) => item.href !== '/')
+              .map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`text-xs uppercase tracking-[0.18em] font-medium transition-all relative py-1 ${
+                      isActive
+                        ? 'text-[#C5A880] font-semibold'
+                        : 'text-[#9E9EA6] hover:text-[#F3F0EA]'
+                    }`}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#C5A880] rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+          </nav>
+
+          {/* Mobile Menu Toggle Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2.5 text-[#F3F0EA] hover:text-[#C5A880] transition-colors border border-[rgba(243,240,234,0.12)] rounded-full bg-[#141418]/80"
+              aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu de navegação'}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Navigation */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden bg-[#09090C]/98 backdrop-blur-2xl flex flex-col justify-between p-6 animate-fade-in">
+          {/* Drawer Top with Logo */}
+          <div className="flex items-center justify-between border-b border-[rgba(243,240,234,0.1)] pb-4">
+            <div className="h-10 flex items-center">
+              <img
+                src="/assets/dr-deibson-logo-cropped.avif"
+                alt="Dr. Deibson Fernandes"
+                className="h-full w-auto object-contain"
+              />
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2.5 text-[#F3F0EA] border border-[rgba(243,240,234,0.12)] rounded-full bg-[#141418]"
+              aria-label="Fechar menu"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Drawer Links */}
+          <nav className="flex flex-col gap-4 my-auto py-6" aria-label="Menu móvel">
+            {mainNavItems.map((item, index) => {
+              const isActive = location.pathname === item.href;
+              const isHome = item.href === '/';
+
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`text-xl font-serif tracking-wide py-2 flex items-center justify-between border-b border-[rgba(243,240,234,0.05)] ${
+                    isActive ? 'text-[#C5A880]' : 'text-[#F3F0EA]'
+                  }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  {isHome ? (
+                    <div className="h-6 flex items-center">
+                      <img
+                        src="/assets/dr-deibson-logo-cropped.avif"
+                        alt="Início"
+                        className="h-full w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                  {isActive && <Sparkles className="w-4 h-4 text-[#C5A880]" />}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Drawer Footer Actions */}
+          <div className="flex flex-col gap-3 pt-4 border-t border-[rgba(243,240,234,0.1)]">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                handleCtaClick();
+              }}
+              className="btn-pill-bronze w-full text-center justify-center py-4 text-xs uppercase tracking-wider font-bold"
+            >
+              Solicitar Avaliação
+            </button>
+
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('click_whatsapp', { source: 'mobile_drawer' })}
+              className="btn-pill-secondary w-full text-center justify-center py-3.5 text-xs tracking-wider flex items-center gap-2"
+            >
+              <MessageCircle className="w-4 h-4 text-[#C5A880]" />
+              <span>WhatsApp: {siteConfig.contact.whatsappDisplay}</span>
+            </a>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};

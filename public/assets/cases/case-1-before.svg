@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGradBefore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101014"/>
+      <stop offset="100%" stop-color="#08080A"/>
+    </linearGradient>
+    <linearGradient id="toothGradBefore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2DCD2"/>
+      <stop offset="60%" stop-color="#C5BCAE"/>
+      <stop offset="100%" stop-color="#9C9284"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGradBefore)"/>
+  
+  <!-- Subtle Grid lines -->
+  <line x1="100" y1="300" x2="700" y2="300" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="400" y1="100" x2="400" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+  
+  <!-- Dental Arch Contour: Before -->
+  <g transform="translate(400, 290) scale(1.1)">
+    <!-- Central Right -->
+    <path d="M-80 -80 C-65 -85 -30 -85 -15 -80 C-12 -40 -15 25 -18 65 C-32 70 -65 68 -80 62 C-82 25 -82 -40 -80 -80 Z" fill="url(#toothGradBefore)" stroke="#666" stroke-width="1.2"/>
+    <!-- Central Left -->
+    <path d="M15 -80 C30 -85 65 -85 80 -80 C82 -40 82 25 80 62 C65 68 32 70 18 65 C15 25 12 -40 15 -80 Z" fill="url(#toothGradBefore)" stroke="#666" stroke-width="1.2"/>
+    <!-- Lateral Right -->
+    <path d="M-135 -70 C-125 -75 -95 -75 -88 -70 C-88 -35 -86 20 -88 52 C-102 56 -128 52 -135 45 C-138 20 -138 -35 -135 -70 Z" fill="url(#toothGradBefore)" stroke="#666" stroke-width="1"/>
+    <!-- Lateral Left -->
+    <path d="M88 -70 C95 -75 125 -75 135 -70 C138 -35 138 20 135 45 C128 52 102 56 88 52 C86 20 88 -35 88 -70 Z" fill="url(#toothGradBefore)" stroke="#666" stroke-width="1"/>
+  </g>
+</svg>

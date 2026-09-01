@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="portraitBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1E"/>
+      <stop offset="50%" stop-color="#101013"/>
+      <stop offset="100%" stop-color="#070708"/>
+    </linearGradient>
+    <radialGradient id="portraitLight" cx="50%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="rgba(197,168,128,0.2)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1C20"/>
+      <stop offset="100%" stop-color="#0E0E10"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8CCA6"/>
+      <stop offset="100%" stop-color="#C59E74"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#portraitBg)"/>
+  <circle cx="400" cy="350" r="350" fill="url(#portraitLight)"/>
+
+  <!-- Subtle Architectural Framing Lines -->
+  <rect x="50" y="50" width="700" height="900" fill="none" stroke="rgba(197,168,128,0.15)" stroke-width="1"/>
+  <line x1="80" y1="80" x2="140" y2="80" stroke="#C5A880" stroke-width="2"/>
+  <line x1="80" y1="80" x2="80" y2="140" stroke="#C5A880" stroke-width="2"/>
+  
+  <line x1="720" y1="920" x2="660" y2="920" stroke="#C5A880" stroke-width="2"/>
+  <line x1="720" y1="920" x2="720" y2="860" stroke="#C5A880" stroke-width="2"/>
+
+  <!-- Stylized Silhouette / Contemporary Portrait Representation -->
+  <!-- Shoulders & Coat -->
+  <path d="M150 960 Q260 620 400 620 Q540 620 650 960 Z" fill="url(#suitGrad)" stroke="rgba(243,240,234,0.1)" stroke-width="1.5"/>
+  <!-- Collar & Shirt -->
+  <path d="M340 620 L400 740 L460 620 L420 615 L400 660 L380 615 Z" fill="#0A0A0C" stroke="#C5A880" stroke-width="1"/>
+  <!-- Neck -->
+  <path d="M350 480 H450 V620 H350 Z" fill="url(#skinGrad)" opacity="0.9"/>
+  <!-- Head & Jawline -->
+  <path d="M320 340 C320 230 480 230 480 340 C480 440 450 510 400 520 C350 510 320 440 320 340 Z" fill="url(#skinGrad)"/>
+  <!-- Modern Hairline -->
+  <path d="M315 320 C320 200 480 190 485 300 C470 240 440 220 400 220 C360 220 330 250 315 320 Z" fill="#151518"/>
+  <!-- Confident Gaze & Subtle Smile -->
+  <ellipse cx="365" cy="350" rx="10" ry="5" fill="#1C1C20"/>
+  <ellipse cx="435" cy="350" rx="10" ry="5" fill="#1C1C20"/>
+  <!-- Glasses / Eyebrows accents -->
+  <path d="M345 335 Q365 330 385 335" stroke="#121214" stroke-width="2.5" fill="none"/>
+  <path d="M415 335 Q435 330 455 335" stroke="#121214" stroke-width="2.5" fill="none"/>
+  <!-- Smile line -->
+  <path d="M375 430 Q400 445 425 430" stroke="#8E5E3C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Badge & Name Label -->
+  <rect x="230" y="860" width="340" height="60" rx="4" fill="rgba(11,11,12,0.85)" stroke="rgba(197,168,128,0.4)" stroke-width="1"/>
+  <text x="400" y="890" font-family="'Playfair Display', serif" font-size="18" font-weight="600" fill="#F3F0EA" text-anchor="middle" letter-spacing="1">DR. DEIBSON FERNANDES</text>
+  <text x="400" y="910" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#C5A880" text-anchor="middle" letter-spacing="2">CRO/SP 168.482 • CRO/GO 24.676</text>
+</svg>

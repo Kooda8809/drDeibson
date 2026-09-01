@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <linearGradient id="artGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181D"/>
+      <stop offset="60%" stop-color="#0E0E10"/>
+      <stop offset="100%" stop-color="#050506"/>
+    </linearGradient>
+    <radialGradient id="lightRay" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="rgba(197, 168, 128, 0.25)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="metalTool" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBEBEB"/>
+      <stop offset="50%" stop-color="#9E9E9E"/>
+      <stop offset="100%" stop-color="#3A3A3D"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DEC5A3"/>
+      <stop offset="100%" stop-color="#9A7B52"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="800" fill="url(#artGrad)"/>
+  <circle cx="350" cy="400" r="400" fill="url(#lightRay)"/>
+
+  <!-- Macro Sculpture Composition: Precision Spatula & Resculpted Tooth Anatomy -->
+  <g transform="translate(480, 420)">
+    <!-- Architectural Grid & Measurement Lines -->
+    <circle cx="0" cy="0" r="260" fill="none" stroke="rgba(197,168,128,0.12)" stroke-width="1" stroke-dasharray="6 6"/>
+    <circle cx="0" cy="0" r="180" fill="none" stroke="rgba(197,168,128,0.18)" stroke-width="1"/>
+    <line x1="-350" y1="0" x2="350" y2="0" stroke="rgba(243,240,234,0.06)" stroke-width="1"/>
+    <line x1="0" y1="-300" x2="0" y2="300" stroke="rgba(243,240,234,0.06)" stroke-width="1"/>
+
+    <!-- Macro Tooth Central Sculpted with Layering -->
+    <path d="M-80 -160 C-65 -180 65 -180 80 -160 C110 -50 100 80 75 180 C40 195 -40 195 -75 180 C-100 80 -110 -50 -80 -160 Z" 
+          fill="#1C1C22" stroke="#C5A880" stroke-width="2"/>
+    <!-- Dentin Layer Glow -->
+    <path d="M-55 -120 C-40 -135 40 -135 55 -120 C75 -30 65 60 50 140 C25 150 -25 150 -50 140 C-65 60 -75 -30 -55 -120 Z" 
+          fill="url(#goldAccent)" opacity="0.4"/>
+    <!-- Incisal Translucency -->
+    <path d="M-75 140 Q0 160 75 140 L70 175 Q0 190 -70 175 Z" fill="#F3F0EA" opacity="0.65"/>
+
+    <!-- High Precision Sculpting Instrument (Micro-spatula) -->
+    <g transform="rotate(-38) translate(70, -280)">
+      <!-- Handle -->
+      <rect x="-10" y="-120" width="20" height="320" rx="3" fill="url(#metalTool)" stroke="#121214" stroke-width="1"/>
+      <!-- Knurled Grip -->
+      <line x1="-10" y1="-40" x2="10" y2="-40" stroke="#121214" stroke-width="2"/>
+      <line x1="-10" y1="-20" x2="10" y2="-20" stroke="#121214" stroke-width="2"/>
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#121214" stroke-width="2"/>
+      <line x1="-10" y1="20" x2="10" y2="20" stroke="#121214" stroke-width="2"/>
+      <!-- Neck & Delicate Blade -->
+      <path d="M-4 200 L-1 310 L-8 345 C-1 360 1 360 8 345 L1 310 L4 200 Z" fill="url(#goldAccent)"/>
+      <circle cx="0" cy="355" r="3" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <text x="500" y="730" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#A0A0A5" text-anchor="middle" letter-spacing="3">
+    ESTRATIFICAÇÃO NANO-HÍBRIDA • ESCULTURA À MÃO LIVRE
+  </text>
+</svg>
