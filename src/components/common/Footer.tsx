@@ -51,19 +51,19 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2 text-sm text-[#A0A0A8] font-light">
                 <li>
-                  <Link to="/lentes-em-resina" className="hover:text-[#DFCAAB] transition-colors flex items-center gap-1.5 group">
-                    <span>Lentes em Resina Direta</span>
+                  <Link to="/casos" className="hover:text-[#DFCAAB] transition-colors flex items-center gap-1.5 group">
+                    <span>Galeria de Casos Clínicos</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#C5A880]" />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/casos" className="hover:text-[#DFCAAB] transition-colors">
-                    Galeria de Casos Clínicos
+                  <Link to="/#lentes-em-resina" className="hover:text-[#DFCAAB] transition-colors">
+                    Lentes em Resina Composta
                   </Link>
                 </li>
                 <li>
-                  <Link to="/lentes-em-resina#processo" className="hover:text-[#DFCAAB] transition-colors">
-                    Processo Passo a Passo
+                  <Link to="/#metodologia" className="hover:text-[#DFCAAB] transition-colors">
+                    Metodologia Autoral
                   </Link>
                 </li>
                 <li>

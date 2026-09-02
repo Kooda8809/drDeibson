@@ -6,7 +6,6 @@ import { MobileFloatingCTA } from './components/common/MobileFloatingCTA';
 import { AppointmentModal } from './components/common/AppointmentModal';
 
 import { HomePage } from './pages/HomePage';
-import { ResinVeneersPage } from './pages/ResinVeneersPage';
 import { CasesPage } from './pages/CasesPage';
 import { AboutPage } from './pages/AboutPage';
 import { FAQPage } from './pages/FAQPage';
@@ -48,7 +47,6 @@ export const App: React.FC = () => {
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage onOpenAppointmentModal={handleOpenAppointmentModal} />} />
-            <Route path="/lentes-em-resina" element={<ResinVeneersPage onOpenAppointmentModal={handleOpenAppointmentModal} />} />
             <Route path="/casos" element={<CasesPage onOpenAppointmentModal={handleOpenAppointmentModal} />} />
             <Route path="/sobre" element={<AboutPage onOpenAppointmentModal={handleOpenAppointmentModal} />} />
             <Route path="/duvidas" element={<FAQPage onOpenAppointmentModal={handleOpenAppointmentModal} />} />

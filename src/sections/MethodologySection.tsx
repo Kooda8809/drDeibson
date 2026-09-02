@@ -45,14 +45,14 @@ export const MethodologySection: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA Action directing to Lentes em Resina full process */}
+          {/* CTA Action directing to Cases Gallery */}
           <div>
             <Link
-              to="/lentes-em-resina"
-              onClick={() => trackEvent('click_methodology_cta', { target: 'lentes_em_resina_page' })}
+              to="/casos"
+              onClick={() => trackEvent('click_methodology_cta', { target: 'cases_gallery' })}
               className="btn-bronze text-xs py-4 px-8 font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl group"
             >
-              <span>Conheça nosso processo passo a passo</span>
+              <span>Ver Resultados na Galeria de Casos</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
