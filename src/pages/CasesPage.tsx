@@ -39,15 +39,17 @@ export const CasesPage: React.FC<CasesPageProps> = ({ onOpenAppointmentModal }) 
   };
 
   const handlePrev = () => {
-    const newIndex = selectedIndex === 0 ? casesData.length - 1 : selectedIndex - 1;
+    if (filteredCases.length === 0) return;
+    const newIndex = selectedIndex <= 0 ? filteredCases.length - 1 : selectedIndex - 1;
     setSelectedIndex(newIndex);
-    setSelectedCase(casesData[newIndex]);
+    setSelectedCase(filteredCases[newIndex]);
   };
 
   const handleNext = () => {
-    const newIndex = selectedIndex === casesData.length - 1 ? 0 : selectedIndex + 1;
+    if (filteredCases.length === 0) return;
+    const newIndex = selectedIndex >= filteredCases.length - 1 ? 0 : selectedIndex + 1;
     setSelectedIndex(newIndex);
-    setSelectedCase(casesData[newIndex]);
+    setSelectedCase(filteredCases[newIndex]);
   };
 
   return (
@@ -107,16 +109,15 @@ export const CasesPage: React.FC<CasesPageProps> = ({ onOpenAppointmentModal }) 
         {/* Grid Gallery with All 9 Cases */}
         <section className="site-container mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredCases.map((item) => {
-              const caseIndex = casesData.findIndex((c) => c.id === item.id);
+            {filteredCases.map((item, index) => {
               return (
                 <div
                   key={item.id}
-                  onClick={() => handleOpenCase(item, caseIndex)}
+                  onClick={() => handleOpenCase(item, index)}
                   className="bento-card group rounded-none flex flex-col bg-[#0D0D12] border border-[rgba(243,240,234,0.08)] hover:border-[#C5A880]/50 transition-all duration-300"
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => e.key === 'Enter' && handleOpenCase(item, caseIndex)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleOpenCase(item, index)}
                   aria-label={`Abrir comparativo de ${item.title}`}
                 >
                   {/* Image Container */}

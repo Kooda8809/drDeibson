@@ -163,7 +163,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({
             className="btn-pill-secondary flex items-center justify-center gap-2 w-full sm:w-auto"
           >
             {isWhatsApp ? (
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <MessageCircle className="w-4 h-4 text-[#C5A880]" />
             ) : (
               <InstagramIcon className="w-4 h-4 text-[#C5A880]" />
             )}

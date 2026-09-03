@@ -48,7 +48,7 @@ export const MethodologySection: React.FC = () => {
           {/* CTA Action directing to Lentes em Resina full process */}
           <div>
             <Link
-              to="/lentes-em-resina"
+              to="/lentes-em-resina#processo"
               onClick={() => trackEvent('click_methodology_cta', { target: 'lentes_em_resina_page' })}
               className="btn-bronze text-xs py-4 px-8 font-bold uppercase tracking-wider inline-flex items-center justify-center gap-2 shadow-xl group"
             >

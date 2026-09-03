@@ -25,8 +25,16 @@ export const InteractiveGalleryModal: React.FC<InteractiveGalleryModalProps> = (
       if (e.key === 'Escape') {
         onClose();
       } else if (e.key === 'ArrowLeft' && onPrev) {
+        const target = e.target as HTMLElement | null;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.getAttribute('role') === 'slider')) {
+          return;
+        }
         onPrev();
       } else if (e.key === 'ArrowRight' && onNext) {
+        const target = e.target as HTMLElement | null;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.getAttribute('role') === 'slider')) {
+          return;
+        }
         onNext();
       }
     };

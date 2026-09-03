@@ -10,6 +10,7 @@ interface SectionHeadingProps {
 }
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({
+  label,
   title,
   highlightedWord,
   subtitle,
@@ -18,6 +19,11 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 }) => {
   return (
     <div className={`mb-12 ${centered ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl'} ${className}`}>
+      {label && (
+        <div className={`editorial-label ${centered ? 'mx-auto' : ''}`}>
+          {label}
+        </div>
+      )}
       <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F3F0EA] font-normal leading-[1.12] mb-5 tracking-tight">
         {title}{' '}
         {highlightedWord && (

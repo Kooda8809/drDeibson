@@ -134,7 +134,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
           <nav className="flex flex-col gap-4 my-auto py-6" aria-label="Menu móvel">
             {mainNavItems.map((item, index) => {
               const isActive = location.pathname === item.href;
-              const isHome = item.href === '/';
 
               return (
                 <Link
@@ -145,17 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAppointmentModal }) => {
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  {isHome ? (
-                    <div className="h-6 flex items-center">
-                      <img
-                        src="/assets/dr-deibson-logo-cropped.avif"
-                        alt="Início"
-                        className="h-full w-auto object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <span>{item.label}</span>
-                  )}
+                  <span>{item.label}</span>
                   {isActive && <Sparkles className="w-4 h-4 text-[#C5A880]" />}
                 </Link>
               );

@@ -67,8 +67,8 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/casos" className="hover:text-[#DFCAAB] transition-colors">
-                    Harmonização do Sorriso
+                  <Link to="/lentes-em-resina#indicacao" className="hover:text-[#DFCAAB] transition-colors">
+                    Critérios & Preservação
                   </Link>
                 </li>
               </ul>
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/duvidas" className="hover:text-[#DFCAAB] transition-colors">
+                  <Link to="/lentes-em-resina#indicacao" className="hover:text-[#DFCAAB] transition-colors">
                     Critérios de Indicação
                   </Link>
                 </li>
@@ -130,9 +130,15 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/duvidas" className="hover:text-[#DFCAAB] transition-colors">
-                    Regulamentação CFO
-                  </Link>
+                  <a
+                    href="https://website.cfo.org.br/resolucao-cfo-196-2019/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#DFCAAB] transition-colors flex items-center gap-1 group"
+                  >
+                    <span>Regulamentação CFO</span>
+                    <ArrowUpRight className="w-3 h-3 text-[#C5A880] opacity-70 group-hover:opacity-100" />
+                  </a>
                 </li>
                 <li>
                   <Link to="/contato" className="hover:text-[#DFCAAB] transition-colors">

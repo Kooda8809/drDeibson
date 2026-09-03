@@ -61,8 +61,10 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   // Keyboard accessibility
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowLeft') {
+      e.stopPropagation();
       setSliderPosition((prev) => Math.max(0, prev - 5));
     } else if (e.key === 'ArrowRight') {
+      e.stopPropagation();
       setSliderPosition((prev) => Math.min(100, prev + 5));
     }
   };
@@ -86,11 +88,19 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         aria-valuemin={0}
         aria-valuemax={100}
       >
+        {/* Discrete Luxury Badges for Immediate Visual Orientation */}
+        <span className="absolute top-3 left-3 z-20 text-[10px] font-mono tracking-widest uppercase bg-black/80 text-[#DFCAAB] px-2.5 py-1 border border-white/10 backdrop-blur-md pointer-events-none select-none">
+          Antes
+        </span>
+        <span className="absolute top-3 right-3 z-20 text-[10px] font-mono tracking-widest uppercase bg-black/80 text-[#DFCAAB] px-2.5 py-1 border border-white/10 backdrop-blur-md pointer-events-none select-none">
+          Depois
+        </span>
+
         {/* Layer 1: AFTER (Full Image Background) */}
         <img
           src={afterImage}
           alt={altAfter}
-          loading="eager"
+          loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           draggable={false}
@@ -104,7 +114,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           <img
             src={beforeImage}
             alt={altBefore}
-            loading="eager"
+            loading="lazy"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
             draggable={false}

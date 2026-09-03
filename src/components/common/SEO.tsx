@@ -40,6 +40,19 @@ export const SEO: React.FC<SEOProps> = ({
     updateMeta('twitter:title', fullTitle);
     updateMeta('twitter:description', description);
 
+    const fullOgImageUrl = ogImage.startsWith('http') ? ogImage : `${siteConfig.seo.baseUrl}${ogImage}`;
+    updateMeta('og:image', fullOgImageUrl);
+    updateMeta('twitter:image', fullOgImageUrl);
+
+    // Update or create canonical link tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', currentUrl);
+
     // Schema.org Structured Data
     const jsonLdData = {
       '@context': 'https://schema.org',

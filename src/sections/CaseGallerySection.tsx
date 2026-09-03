@@ -136,10 +136,12 @@ export const CaseGallerySection: React.FC = () => {
 
           {/* Bento Item 4 - Wide Bottom Right (Span 7) */}
           <div
-            onClick={() => handleOpenCase(casesData[0], 0)}
+            onClick={() => handleOpenCase(casesData[3], 3)}
             className="bento-card md:col-span-7 aspect-[16/10] group bg-gradient-to-br from-[#121217] to-[#0A0A0E] p-8 flex flex-col justify-between rounded-none"
             role="button"
             tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleOpenCase(casesData[3], 3)}
+            aria-label="Abrir comparativo de caso clínico"
           >
             <div>
               <h3 className="font-serif text-2xl md:text-3xl text-[#F3F0EA] font-normal leading-snug mb-3">

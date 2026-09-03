@@ -91,7 +91,7 @@ export const siteConfig: SiteConfig = {
       'CRO SP 168482',
       'CRO GO 24676',
     ],
-    ogImage: '/og-cover.png',
+    ogImage: '/og-cover.jpg',
   },
 };
 

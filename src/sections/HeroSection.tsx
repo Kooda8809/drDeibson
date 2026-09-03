@@ -9,8 +9,8 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAppointmentModal }) => {
   const handleExploreClick = () => {
-    trackEvent('scroll_hero_cta', { target: 'autoridade' });
-    const target = document.getElementById('autoridade');
+    trackEvent('scroll_hero_cta', { target: 'lentes-em-resina' });
+    const target = document.getElementById('lentes-em-resina');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }

@@ -182,7 +182,7 @@ export const ResinVeneersPage: React.FC<ResinVeneersPageProps> = ({ onOpenAppoin
             </div>
 
             {/* Indication & Assessment Box (Harmonious Symmetrical Quick Scanning) */}
-            <div className="p-6 sm:p-8 rounded-none bg-[#101014] border border-[rgba(197,168,128,0.3)] shadow-2xl">
+            <div id="indicacao" className="p-6 sm:p-8 rounded-none bg-[#101014] border border-[rgba(197,168,128,0.3)] shadow-2xl scroll-mt-28">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[rgba(243,240,234,0.06)]">
                 <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6 text-[#DFCAAB]" />
                 <h3 className="font-serif text-xl sm:text-2xl text-[#F3F0EA] font-normal">
